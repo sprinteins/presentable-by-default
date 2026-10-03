@@ -1,6 +1,6 @@
-# SprintEins CSS
+# Presentable By Default
 
-Mostly classless, themeable corporate-design CSS. Semantic HTML in, SprintEins look out.
+Mostly classless, themeable SprintEins design CSS. Semantic HTML in, SprintEins look.
 
 ## Use
 
