@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SprintEins CSS - Demo</title>
+  <link rel="icon" type="image/png" href="../assets/logos/SprintEins_Logo_N_dunkel_RGB.png">
+  <script src="./theme.js"></script>
+  <link rel="stylesheet" href="../dist/sprinteins.css">
+  <!-- Brand fonts, needs the files in /fonts (see fonts/README.md). Missing files fall back silently. -->
+  <link rel="stylesheet" href="../dist/sprinteins-fonts.css">
+  <link rel="stylesheet" href="./demo.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header>
+    <a href="#top" aria-label="SprintEins home"><img class="logo" src="../assets/logos/SprintEins_Logo_SE_dunkel_RGB.png" alt="SprintEins"></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#typography" aria-current="page">Typography</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#components">Components</a></li>
+        <li><a href="#themes">Themes</a></li>
+        <li>
+          <label>
+            <span class="sr-only">Theme</span>
+            <select id="theme" aria-label="Theme">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="auto">Auto (system)</option>
+              <option value="navy">Navy</option>
+              <option value="plum">Plum</option>
+              <option value="teal">Teal</option>
+              <option value="olive">Olive</option>
+              <option value="volt">Volt</option>
+              <option value="ultramarine">Ultramarine</option>
+              <option value="gruvbox">Gruvbox</option>
+            </select>
+          </label>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content">
+    <section id="top">
+      <hgroup>
+        <p class="eyebrow">SprintEins CSS</p>
+        <h1>Wir bauen Custom Software in der Enterprise IT.</h1>
+        <p class="lead">Classless corporate design. Write semantic HTML, get the SprintEins look. Switch the theme in the header.</p>
+      </hgroup>
+      <p>
+        <a href="#forms" role="button">Primary action</a>
+        <a href="#themes" role="button" class="secondary">Secondary</a>
+        <button class="solid" type="button">Solid</button>
+      </p>
+    </section>
+
+    <section id="typography">
+      <h2>Typography</h2>
+      <p class="lead">Headlines are uppercase and tracked, body copy is light. Links keep the text color and carry the accent underline: <a href="#typography">like this one</a>.</p>
+
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+
+      <p>Body copy with <strong>strong</strong>, <em>emphasis</em>, <mark>mark</mark>, <small>small print</small>, <abbr title="Cascading Style Sheets">CSS</abbr>, <code>inline code</code>, <kbd>Ctrl</kbd> + <kbd>K</kbd>, H<sub>2</sub>O and E=mc<sup>2</sup>. Agile Teams aus erfahrenen Designern, Technologen und Strategen realisieren digitale Produktvisionen - von der Idee bis zur Vermarktung.</p>
+
+      <ul>
+        <li>Unordered list item</li>
+        <li>Another item
+          <ul>
+            <li>Nested item</li>
+          </ul>
+        </li>
+      </ul>
+      <ol>
+        <li>Ordered list item</li>
+        <li>Another item</li>
+      </ol>
+
+      <blockquote>
+        <p>Software is a team sport.</p>
+        <footer>SprintEins</footer>
+      </blockquote>
+
+      <pre><code>:root {
+  --se-accent: #fd4864;
+}</code></pre>
+
+      <hr>
+
+      <dl class="tokens">
+        <dt>Headline font</dt>
+        <dd><code>--se-font-headline</code></dd>
+        <dt>Text font</dt>
+        <dd><code>--se-font-text</code></dd>
+      </dl>
+    </section>
+
+    <section id="forms">
+      <h2>Forms</h2>
+      <form onsubmit="return false">
+        <div class="grid">
+          <label>Name
+            <input type="text" placeholder="Jane Doe" required>
+          </label>
+          <label>E-Mail
+            <input type="email" placeholder="jane@example.com">
+          </label>
+        </div>
+        <label>Topic
+          <select>
+            <option>Daten &amp; KI</option>
+            <option>Digitale Services</option>
+            <option>Technologien</option>
+          </select>
+        </label>
+        <label>Message
+          <textarea placeholder="Tell us about your project"></textarea>
+        </label>
+        <label>Invalid field
+          <input type="text" value="oops" aria-invalid="true">
+        </label>
+        <div class="grid">
+          <fieldset>
+            <legend>Interests</legend>
+            <label><input type="checkbox" checked> Agile coaching</label>
+            <label><input type="checkbox"> UX design</label>
+          </fieldset>
+          <fieldset>
+            <legend>Contact via</legend>
+            <label><input type="radio" name="via" checked> E-Mail</label>
+            <label><input type="radio" name="via"> Phone</label>
+          </fieldset>
+        </div>
+        <label>Budget
+          <input type="range" min="0" max="100" value="40">
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <section id="components">
+      <h2>Components</h2>
+
+      <h3>Cards</h3>
+      <div class="grid">
+        <article>
+          <header><h4>Cases</h4></header>
+          <p>Automotive, Logistics, Banking, Energy. Real products for real enterprises.</p>
+          <footer><a href="#components">Read more</a></footer>
+        </article>
+        <article>
+          <h4>Leistungen</h4>
+          <p>Daten &amp; KI, Digitale Services, Technologien. Card without header or footer.</p>
+        </article>
+        <article>
+          <h4>Karriere</h4>
+          <p>Join cross-functional teams of designers, technologists and strategists.</p>
+        </article>
+      </div>
+
+      <h3>Callouts</h3>
+      <aside>
+        <h4>Default</h4>
+        <p>Uses the theme accent color.</p>
+      </aside>
+      <aside data-tone="info"><p>Info: <code>data-tone="info"</code></p></aside>
+      <aside data-tone="success"><p>Success: <code>data-tone="success"</code></p></aside>
+      <aside data-tone="warning"><p>Warning: <code>data-tone="warning"</code></p></aside>
+      <aside data-tone="danger"><p>Danger: <code>data-tone="danger"</code></p></aside>
+
+      <h3>Accordion</h3>
+      <details open>
+        <summary>What is classless CSS?</summary>
+        <p>Plain HTML elements are styled directly. Classes are optional helpers.</p>
+      </details>
+      <details>
+        <summary>How do themes work?</summary>
+        <p>Set <code>data-theme</code> on <code>&lt;html&gt;</code> or on any element for a scoped theme.</p>
+      </details>
+      <details>
+        <summary>Can I add my own theme?</summary>
+        <p>Copy <code>src/themes/_template.css</code>, fill in the tokens, register it, run the build.</p>
+      </details>
+
+      <h3>Table</h3>
+      <table>
+        <caption>Brand colors</caption>
+        <thead>
+          <tr><th>Name</th><th>Token</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Red</td><td><code>--se-red</code></td><td>#fd4864</td></tr>
+          <tr><td>Yellow</td><td><code>--se-yellow</code></td><td>#ecff00</td></tr>
+          <tr><td>Black</td><td><code>--se-black</code></td><td>#000003</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Progress and dialog</h3>
+      <p><progress value="65" max="100">65%</progress></p>
+      <p><button type="button" class="secondary" data-open-dialog="demo-dialog">Open dialog</button></p>
+      <dialog id="demo-dialog">
+        <form method="dialog">
+          <h3>Dialog</h3>
+          <p>Native <code>&lt;dialog&gt;</code>, themed.</p>
+          <button type="submit">Close</button>
+        </form>
+      </dialog>
+
+      <h3>Media</h3>
+      <figure>
+        <img src="../assets/logos/SprintEins_Logo_N_dunkel_RGB.png" alt="SprintEins signet" class="logo">
+        <figcaption>The logo is a dark PNG. <code>.logo</code> inverts it automatically on dark themes.</figcaption>
+      </figure>
+    </section>
+
+    <section id="palette">
+      <h2>Brand palette</h2>
+      <ul class="palette">
+        <li style="background: var(--se-black); color: #fff">Black<code>#000003</code></li>
+        <li style="background: var(--se-ink); color: #fff">Ink<code>#05050a</code></li>
+        <li style="background: var(--se-gray); color: #fff">Gray<code>#828285</code></li>
+        <li style="background: var(--se-gray-mist); color: #000">Mist<code>#e5e5e8</code></li>
+        <li style="background: var(--se-gray-light); color: #000">Light<code>#f5f5f5</code></li>
+        <li style="background: var(--se-red); color: #000">Red<code>#fd4864</code></li>
+        <li style="background: var(--se-yellow); color: #000">Yellow<code>#ecff00</code></li>
+        <li style="background: var(--se-navy); color: #fff">Navy<code>#08223f</code></li>
+        <li style="background: var(--se-plum); color: #fff">Plum<code>#48193c</code></li>
+        <li style="background: var(--se-teal); color: #fff">Teal<code>#005c6c</code></li>
+        <li style="background: var(--se-teal-deep); color: #fff">Teal deep<code>#02252d</code></li>
+        <li style="background: var(--se-olive); color: #000">Olive<code>#8c8100</code></li>
+      </ul>
+    </section>
+
+    <section id="themes">
+      <h2>Themes</h2>
+      <p>Every element can carry <code>data-theme</code>. These blocks are scoped themes inside the current page theme.</p>
+    </section>
+
+    <section data-theme="light">
+      <h3>Light</h3>
+      <p>White canvas, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+    </section>
+    <section data-theme="dark">
+      <h3>Dark</h3>
+      <p>Near-black canvas, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+    </section>
+    <section data-theme="navy">
+      <h3>Navy</h3>
+      <p>Brand section color 1, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+    </section>
+    <section data-theme="plum">
+      <h3>Plum</h3>
+      <p>Brand section color 2, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+    </section>
+    <section data-theme="teal">
+      <h3>Teal</h3>
+      <p>Brand section color 3 with yellow accent, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+    </section>
+    <section data-theme="olive">
+      <h3>Olive</h3>
+      <p>Brand section color 5, dark text, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+    </section>
+    <section data-theme="volt">
+      <h3>Volt</h3>
+      <p>Black canvas, signal yellow, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+    </section>
+    <section id="ultramarine" data-theme="ultramarine">
+      <h3>Ultramarine</h3>
+      <p>Deep blue canvas, gold accent, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+      <ul class="palette">
+        <li style="background: #113f7d; color: #fff">Blue<code>#113f7d</code></li>
+        <li style="background: #181415; color: #fff">Black<code>#181415</code></li>
+        <li style="background: #a4a4a4; color: #000">Silver<code>#a4a4a4</code></li>
+        <li style="background: #494949; color: #fff">Graphite<code>#494949</code></li>
+        <li style="background: #970d0a; color: #fff">Red<code>#970d0a</code></li>
+        <li style="background: #e9bd5e; color: #000">Gold<code>#e9bd5e</code></li>
+        <li style="background: #b29b85; color: #000">Sand<code>#b29b85</code></li>
+        <li style="background: #96887b; color: #000">Taupe<code>#96887b</code></li>
+        <li style="background: #4a0f07; color: #fff">Brown<code>#4a0f07</code></li>
+        <li style="background: #7b7b7b; color: #000">Stone<code>#7b7b7b</code></li>
+      </ul>
+    </section>
+    <section data-theme="gruvbox">
+      <h3>Gruvbox</h3>
+      <p>Warm retro dark, orange accent, <a href="#themes">accent underline</a>.</p>
+      <p><a role="button" href="#themes">Action</a> <button class="solid" type="button">Solid</button></p>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="grid">
+      <div>
+        <img class="logo" src="../assets/logos/SprintEins_Logo_N_dunkel_RGB.png" alt="SprintEins signet">
+      </div>
+      <nav aria-label="Footer">
+        <ul>
+          <li><a href="#typography">Typography</a></li>
+          <li><a href="#forms">Forms</a></li>
+          <li><a href="#components">Components</a></li>
+        </ul>
+      </nav>
+      <p><small>&copy; SprintEins. Footer remaps tokens: <a href="#themes">links</a> keep the accent.</small></p>
+    </div>
+  </footer>
+</body>
+</html>

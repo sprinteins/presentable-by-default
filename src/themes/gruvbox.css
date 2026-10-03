@@ -1,0 +1,17 @@
+/* Gruvbox dark (medium bg, hard footer), orange accent */
+@layer se.themes {
+  [data-theme="gruvbox"] {
+    color-scheme: dark;
+    --se-bg: #282828;
+    --se-fg: #ebdbb2;
+    --se-muted: #bdae93;
+    --se-surface: #3c3836;
+    --se-accent: #fe8019;
+    --se-on-accent: #1d2021;
+    --se-footer-bg: #1d2021;
+    --se-footer-fg: #ebdbb2;
+    --se-footer-accent: #fabd2f;
+    --se-logo-filter: invert(1);
+    --se-footer-logo-filter: invert(1);
+  }
+}

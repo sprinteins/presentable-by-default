@@ -1,0 +1,17 @@
+/* Black canvas, signal yellow (--yellow) accent */
+@layer se.themes {
+  [data-theme="volt"] {
+    color-scheme: dark;
+    --se-bg: #000003;
+    --se-fg: #ffffff;
+    --se-muted: #bdbdbf;
+    --se-surface: #14140f;
+    --se-accent: #ecff00;
+    --se-on-accent: #000003;
+    --se-footer-bg: #14140f;
+    --se-footer-fg: #ffffff;
+    --se-footer-accent: #ecff00;
+    --se-logo-filter: invert(1);
+    --se-footer-logo-filter: invert(1);
+  }
+}

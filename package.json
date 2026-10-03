@@ -1,0 +1,34 @@
+{
+  "name": "@sprinteins/presentable-by-default",
+  "version": "0.1.0",
+  "description": "Classless, themeable corporate design CSS for SprintEins",
+  "private": false,
+  "license": "UNLICENSED",
+  "keywords": ["css", "classless", "design-system", "themes", "sprinteins"],
+  "type": "module",
+  "style": "dist/sprinteins.css",
+  "main": "dist/sprinteins.css",
+  "exports": {
+    ".": "./dist/sprinteins.css",
+    "./fonts": "./dist/sprinteins-fonts.css",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "fonts/README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "contrast": "node scripts/contrast.mjs",
+    "check": "npm run build && npm run contrast",
+    "serve": "npm run build && node scripts/serve.mjs",
+    "start": "npm run serve -- --open",
+    "prepublishOnly": "npm run check",
+    "publish:npm": "node scripts/publish.mjs"
+  }
+}

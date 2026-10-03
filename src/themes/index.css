@@ -1,0 +1,16 @@
+/*
+  Theme registry. Order matters: later theme blocks win on equal specificity.
+  To add a theme: copy _template.css to <name>.css, fill the tokens, import it below.
+  To drop a theme: remove its import line.
+*/
+@import "./light.css";
+@import "./dark.css";
+@import "./auto.css";
+@import "./navy.css";
+@import "./plum.css";
+@import "./teal.css";
+@import "./olive.css";
+@import "./volt.css";
+@import "./ultramarine.css";
+@import "./gruvbox.css";
+@import "./derived.css";

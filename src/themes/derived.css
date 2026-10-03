@@ -1,0 +1,14 @@
+/*
+  Tokens derived from the theme tokens. Declared on every theme root
+  (:root and [data-theme]) so nested themes recompute them - custom properties
+  that reference other properties resolve where they are declared.
+*/
+@layer se.themes {
+  :where(:root, [data-theme]) {
+    --se-border: color-mix(in srgb, var(--se-fg) 15%, transparent);
+    --se-border-strong: var(--se-fg);
+    --se-tint: color-mix(in srgb, var(--se-fg) 6%, transparent);
+    --se-accent-soft: color-mix(in srgb, var(--se-accent) 18%, transparent);
+    --se-focus: var(--se-accent);
+  }
+}

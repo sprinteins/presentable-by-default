@@ -1,0 +1,36 @@
+/*
+  Optional webfonts (woff only, as served by sprinteins.com).
+  The brand fonts are licensed webfonts: kept out of git and the npm package.
+  See fonts/README.md.
+*/
+@font-face {
+  font-family: "SE Headline";
+  src: url("../fonts/se-headline.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SE Text";
+  src: url("../fonts/se-text-light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SE Text";
+  src: url("../fonts/se-text-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SE Text";
+  src: url("../fonts/se-text-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,21 @@
+/*
+  Theme template. Copy to <name>.css, rename, fill in, add to index.css.
+  Use plain 6-digit hex for every color: `npm run contrast` reads them.
+  Apply with <html data-theme="NAME"> or any element for a scoped theme.
+*/
+@layer se.themes {
+  [data-theme="NAME"] {
+    color-scheme: light; /* or dark: native controls and scrollbars follow it */
+    --se-bg: #ffffff;           /* page background */
+    --se-fg: #000003;           /* text, strong borders */
+    --se-muted: #5c5c60;        /* secondary text (>= 4.5:1 on bg) */
+    --se-surface: #f5f5f5;      /* cards, code, callouts */
+    --se-accent: #fd4864;       /* underlines, button borders, focus (>= 3:1 on bg) */
+    --se-on-accent: #000003;    /* text on filled accent (>= 4.5:1) */
+    --se-footer-bg: #05050a;
+    --se-footer-fg: #ffffff;
+    --se-footer-accent: #fd4864; /* accent on the footer background */
+    --se-logo-filter: none;         /* dark logo PNG: none on light bg, invert(1) on dark bg */
+    --se-footer-logo-filter: invert(1);
+  }
+}

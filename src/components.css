@@ -1,0 +1,170 @@
+@layer se.components {
+  /* Cards: any <article> except a page-level one directly in <main> */
+  article:not(main > article) {
+    background: var(--se-surface);
+    padding: var(--se-space-6);
+  }
+
+  article > :where(header, footer):not(:only-child) {
+    margin-inline: calc(-1 * var(--se-space-6));
+    padding-inline: var(--se-space-6);
+  }
+
+  article > header {
+    margin-block: calc(-1 * var(--se-space-6)) var(--se-space-5);
+    padding-block: var(--se-space-4);
+    border-block-end: var(--se-border-w) solid var(--se-border);
+  }
+
+  article > footer {
+    margin-block: var(--se-space-5) calc(-1 * var(--se-space-6));
+    padding-block: var(--se-space-4);
+    border-block-start: var(--se-border-w) solid var(--se-border);
+  }
+
+  article > header > :where(h1, h2, h3, h4, h5, h6) {
+    margin: 0;
+  }
+
+  /* Callouts: <aside>, optional data-tone="info|success|warning|danger" */
+  aside {
+    --tone: var(--se-accent);
+    padding: var(--se-space-5) var(--se-space-6);
+    background: color-mix(in srgb, var(--tone) 14%, var(--se-bg));
+    border-inline-start: 0.3rem solid var(--tone);
+  }
+
+  aside[data-tone="info"] {
+    --tone: var(--se-info);
+  }
+
+  aside[data-tone="success"] {
+    --tone: var(--se-success);
+  }
+
+  aside[data-tone="warning"] {
+    --tone: var(--se-warning);
+  }
+
+  aside[data-tone="danger"] {
+    --tone: var(--se-danger);
+  }
+
+  aside > :where(h1, h2, h3, h4, h5, h6):first-child {
+    font-size: var(--se-text-label);
+    letter-spacing: var(--se-tracking-label);
+    margin-block: 0 var(--se-space-2);
+  }
+
+  /* Accordion: <details> */
+  details {
+    border-block-start: var(--se-border-w-strong) solid var(--se-border-strong);
+    margin-block-end: 0;
+  }
+
+  details:not(:has(+ details)) {
+    border-block-end: var(--se-border-w-strong) solid var(--se-border-strong);
+    margin-block-end: var(--se-space-5);
+  }
+
+  details > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--se-space-4);
+    padding-block: var(--se-space-4);
+    font-family: var(--se-font-headline);
+    font-weight: var(--se-weight-headline);
+    font-size: var(--se-text-h5);
+    text-transform: uppercase;
+    color: var(--se-muted);
+    cursor: pointer;
+    list-style: none;
+    transition: color var(--se-duration) var(--se-ease);
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details > summary::after {
+    content: "+";
+    font-family: var(--se-font-text);
+    font-weight: var(--se-weight-light);
+    font-size: 1.75em;
+    line-height: 1;
+  }
+
+  details[open] > summary::after {
+    content: "\2212";
+  }
+
+  details > summary:hover,
+  details[open] > summary {
+    color: var(--se-fg);
+  }
+
+  details > :not(summary) {
+    margin-block-end: var(--se-space-5);
+  }
+
+  details > :last-child {
+    margin-block-end: var(--se-space-5);
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375em;
+  }
+
+  th,
+  td {
+    padding: var(--se-space-3) var(--se-space-4);
+    text-align: start;
+    vertical-align: top;
+    border-block-end: var(--se-border-w) solid var(--se-border);
+  }
+
+  thead th {
+    font-family: var(--se-font-headline);
+    font-weight: var(--se-weight-headline);
+    font-size: var(--se-text-label);
+    letter-spacing: var(--se-tracking-label);
+    text-transform: uppercase;
+    border-block-end: var(--se-border-w-strong) solid var(--se-border-strong);
+  }
+
+  tbody tr:hover {
+    background: var(--se-tint);
+  }
+
+  tfoot th,
+  tfoot td {
+    border-block-end: 0;
+    border-block-start: var(--se-border-w-strong) solid var(--se-border-strong);
+  }
+
+  caption {
+    padding-block-end: var(--se-space-3);
+    text-align: start;
+    color: var(--se-muted);
+    font-size: var(--se-text-small);
+  }
+
+  /* Dialog */
+  dialog {
+    max-width: min(90vw, 40rem);
+    padding: var(--se-space-7);
+    background: var(--se-bg);
+    color: var(--se-fg);
+    border: var(--se-border-w-strong) solid var(--se-border-strong);
+    border-radius: var(--se-radius);
+    box-shadow: var(--se-shadow-overlay);
+  }
+
+  dialog::backdrop {
+    background: rgb(0 0 0 / 60%);
+  }
+}

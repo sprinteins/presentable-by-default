@@ -1,0 +1,19 @@
+/* Default theme: white canvas, near-black text, red accent (sprinteins.com) */
+@layer se.themes {
+  :root,
+  [data-theme="light"],
+  [data-theme="auto"] {
+    color-scheme: light;
+    --se-bg: #ffffff;
+    --se-fg: #000003;
+    --se-muted: #5c5c60;
+    --se-surface: #f5f5f5;
+    --se-accent: #fd4864;
+    --se-on-accent: #000003;
+    --se-footer-bg: #05050a;
+    --se-footer-fg: #ffffff;
+    --se-footer-accent: #fd4864;
+    --se-logo-filter: none;
+    --se-footer-logo-filter: invert(1);
+  }
+}

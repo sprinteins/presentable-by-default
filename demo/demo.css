@@ -1,0 +1,74 @@
+/* Demo-only helpers. The library itself needs none of this. */
+.palette {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: var(--se-space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--se-space-5);
+}
+
+.palette li {
+  position: relative;
+  margin: 0;
+  padding: var(--se-space-3);
+  min-height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: var(--se-text-small);
+  line-height: 1.3;
+  border: var(--se-border-w) solid var(--se-border);
+}
+
+/* Click-to-copy: swatches get role=button from theme.js */
+.palette li[role="button"] {
+  cursor: copy;
+  transition: transform var(--se-duration, 0.3s) var(--se-ease, ease), box-shadow var(--se-duration, 0.3s) var(--se-ease, ease);
+}
+
+.palette li[role="button"]::after {
+  content: "Copy";
+  position: absolute;
+  top: var(--se-space-2);
+  right: var(--se-space-3);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.palette li[role="button"]:hover,
+.palette li[role="button"]:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 2px var(--se-fg);
+}
+
+.palette li[role="button"]:hover::after,
+.palette li[role="button"]:focus-visible::after,
+.palette li[data-copied]::after {
+  opacity: 0.75;
+}
+
+.palette li[data-copied]::after {
+  content: "Copied";
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .palette li[role="button"]:hover,
+  .palette li[role="button"]:focus-visible {
+    transform: none;
+  }
+}
+
+.palette li code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+.tokens dd code {
+  white-space: nowrap;
+}

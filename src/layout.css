@@ -1,0 +1,123 @@
+@layer se.layout {
+  body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    /* Full-bleed backgrounds, content centered to --se-container */
+    --se-pad-inline: max(var(--se-gutter), (100% - var(--se-container)) / 2);
+  }
+
+  main {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+
+  body > header,
+  body > footer,
+  main > * {
+    padding-inline: var(--se-pad-inline);
+  }
+
+  main > section {
+    padding-block: var(--se-section-y);
+    margin-block-end: 0;
+  }
+
+  /* Adjacent unthemed sections share one gap; themed ones keep their own padding */
+  main > section:not([data-theme]) + section:not([data-theme]) {
+    padding-block-start: 0;
+  }
+
+  main > :where(:not(section)):first-child {
+    padding-block-start: var(--se-space-8);
+  }
+
+  main > :where(:not(section)):last-child {
+    padding-block-end: var(--se-space-8);
+  }
+
+  /* Header and navigation */
+  body > header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--se-space-3) var(--se-space-6);
+    padding-block: var(--se-space-3);
+    background: var(--se-bg);
+    border-block-end: var(--se-border-w) solid var(--se-border);
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--se-space-1) var(--se-space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  nav a {
+    display: inline-block;
+    padding-block: var(--se-space-2);
+    font-family: var(--se-font-headline);
+    font-weight: var(--se-weight-headline);
+    font-size: var(--se-text-label);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 0.2em;
+    text-underline-offset: 0.45em;
+  }
+
+  nav a:hover,
+  nav a[aria-current] {
+    text-decoration-color: var(--se-accent);
+  }
+
+  /* Footer remaps the semantic tokens so everything inside adapts */
+  body > footer {
+    --se-bg: var(--se-footer-bg);
+    --se-fg: var(--se-footer-fg);
+    --se-accent: var(--se-footer-accent);
+    --se-on-accent: #000003;
+    --se-muted: color-mix(in srgb, var(--se-fg) 72%, var(--se-bg));
+    --se-surface: color-mix(in srgb, var(--se-fg) 8%, var(--se-bg));
+    --se-border: color-mix(in srgb, var(--se-fg) 15%, transparent);
+    --se-border-strong: var(--se-fg);
+    --se-focus: var(--se-accent);
+    --se-logo-filter: var(--se-footer-logo-filter);
+    background: var(--se-bg);
+    color: var(--se-fg);
+    padding-block: var(--se-space-8);
+    font-size: 0.9375rem;
+  }
+
+  body > footer nav ul {
+    flex-direction: column;
+  }
+
+  body > footer nav a {
+    padding-block: var(--se-space-1);
+  }
+
+  /* Opt-in grid: auto-fitting columns */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: var(--se-space-6);
+    margin-block-end: var(--se-space-5);
+  }
+
+  .grid > * {
+    margin: 0;
+  }
+}

@@ -1,0 +1,17 @@
+/* Brand section color --color-3, yellow accent for contrast */
+@layer se.themes {
+  [data-theme="teal"] {
+    color-scheme: dark;
+    --se-bg: #005c6c;
+    --se-fg: #ffffff;
+    --se-muted: #d3e8ec;
+    --se-surface: #02252d;
+    --se-accent: #ecff00;
+    --se-on-accent: #000003;
+    --se-footer-bg: #02252d;
+    --se-footer-fg: #ffffff;
+    --se-footer-accent: #ecff00;
+    --se-logo-filter: invert(1);
+    --se-footer-logo-filter: invert(1);
+  }
+}

@@ -1,0 +1,17 @@
+/* Brand section color --color-1 */
+@layer se.themes {
+  [data-theme="navy"] {
+    color-scheme: dark;
+    --se-bg: #08223f;
+    --se-fg: #ffffff;
+    --se-muted: #b9c4d2;
+    --se-surface: #0d3158;
+    --se-accent: #fd4864;
+    --se-on-accent: #000003;
+    --se-footer-bg: #04152a;
+    --se-footer-fg: #ffffff;
+    --se-footer-accent: #fd4864;
+    --se-logo-filter: invert(1);
+    --se-footer-logo-filter: invert(1);
+  }
+}

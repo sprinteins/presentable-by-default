@@ -1,0 +1,17 @@
+/* Brand section color --color-5. Dark text: white on olive fails contrast. */
+@layer se.themes {
+  [data-theme="olive"] {
+    color-scheme: light;
+    --se-bg: #8c8100;
+    --se-fg: #000003;
+    --se-muted: #0c0a00;
+    --se-surface: #a39700;
+    --se-accent: #000003;
+    --se-on-accent: #ecff00;
+    --se-footer-bg: #000003;
+    --se-footer-fg: #ecff00;
+    --se-footer-accent: #ecff00;
+    --se-logo-filter: none;
+    --se-footer-logo-filter: invert(1);
+  }
+}

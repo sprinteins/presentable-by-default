@@ -1,0 +1,17 @@
+/* Ultramarine: deep blue canvas, gold accent, near-black footer */
+@layer se.themes {
+  [data-theme="ultramarine"] {
+    color-scheme: dark;
+    --se-bg: #113f7d;
+    --se-fg: #ffffff;
+    --se-muted: #d3dbe8;
+    --se-surface: #0c2f5e;
+    --se-accent: #e9bd5e;
+    --se-on-accent: #181415;
+    --se-footer-bg: #181415;
+    --se-footer-fg: #ffffff;
+    --se-footer-accent: #e9bd5e;
+    --se-logo-filter: invert(1);
+    --se-footer-logo-filter: invert(1);
+  }
+}

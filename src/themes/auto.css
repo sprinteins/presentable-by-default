@@ -1,0 +1,19 @@
+/* Follows the OS setting. Keep tokens identical to dark.css. */
+@layer se.themes {
+  @media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+      color-scheme: dark;
+      --se-bg: #05050a;
+      --se-fg: #ffffff;
+      --se-muted: #bdbdbf;
+      --se-surface: #12121c;
+      --se-accent: #fd4864;
+      --se-on-accent: #000003;
+      --se-footer-bg: #000003;
+      --se-footer-fg: #ffffff;
+      --se-footer-accent: #fd4864;
+      --se-logo-filter: invert(1);
+      --se-footer-logo-filter: invert(1);
+    }
+  }
+}

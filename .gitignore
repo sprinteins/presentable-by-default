@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# npm pack output
+*.tgz
+
+# Env / secrets
+.env
+.env.*
+.npmrc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Licensed brand fonts (keep README only)
+fonts/*
+!fonts/README.md
+
+# Logo master pack
+_SprintEins_Logopack/
+
+# Build output (npm run build)
+dist/
