@@ -20,11 +20,11 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
-          node-version: 22
+          node-version: 24
           registry-url: https://registry.npmjs.org
 
       - name: Tag must match package.json version
@@ -51,12 +51,10 @@ jobs:
         if: ${{ !startsWith(github.ref, 'refs/tags/v') || steps.published.outputs.exists == 'true' }}
         run: npm run check
 
-      # Trusted publishing (OIDC via id-token: write) needs npm >= 11.5.1; no token.
+      # Trusted publishing (OIDC via id-token: write), no token. Node 24 ships npm 11 (>= 11.5.1 required).
       - name: Publish to npm
         if: ${{ startsWith(github.ref, 'refs/tags/v') && steps.published.outputs.exists != 'true' }}
-        run: |
-          npm install -g npm@^11.5.1
-          npm publish --provenance
+        run: npm publish --provenance
 
       - name: Assemble demo site
         run: |

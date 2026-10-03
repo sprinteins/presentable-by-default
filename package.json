@@ -4,6 +4,11 @@
   "description": "Classless, themeable corporate design CSS for SprintEins",
   "private": false,
   "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sprinteins/presentable-by-default.git"
+  },
+  "homepage": "https://sprinteins.github.io/presentable-by-default/",
   "keywords": [
     "css",
     "classless",
