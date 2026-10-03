@@ -2,6 +2,8 @@
 
 Mostly classless, themeable SprintEins design CSS. Semantic HTML in, SprintEins look.
 
+Proprietary: only SprintEins-authorized projects may use this library and its assets. See [LICENSE](LICENSE).
+
 ## Use
 
 ```html
@@ -17,6 +19,8 @@ npm run serve   # build + serve http://localhost:3000/demo/
 npm start       # same, opens browser
 npm run serve -- --port=8080
 ```
+
+Dev server binds to `127.0.0.1` and serves only `demo/`, `dist/`, `assets/`, `fonts/`.
 
 `demo/index.html` also works via `file://`.
 
@@ -50,25 +54,25 @@ Set `data-theme` on `<html>` or any element (scoped).
 <section data-theme="plum">...</section>
 ```
 
-Each theme only sets semantic tokens: `--se-bg, --se-fg, --se-muted, --se-surface, --se-accent, --se-on-accent, --se-footer-*, --se-logo-filter`. Derived tokens (border, tint, focus) live in `src/themes/derived.css`.
+Each theme only sets `color-scheme` and semantic tokens: `--se-bg, --se-fg, --se-muted, --se-surface, --se-accent, --se-on-accent, --se-footer-bg, --se-footer-fg, --se-footer-accent, --se-logo-filter, --se-footer-logo-filter`. Derived tokens (border, tint, focus) live in `src/themes/derived.css`.
 
 Add a theme:
 
 1. Copy `src/themes/_template.css`, fill tokens
 2. `@import` it in `src/themes/index.css`
-3. Add `<option>` in demo
-4. `npm run check` (build + WCAG contrast)
+3. Add `<option>` in `demo/index.html` and the name in `THEMES` in `demo/theme.js`
+4. `npm run check` (build + WCAG contrast + theme list in sync)
 
 Notes:
 
-1. `src/themes/auto.css` duplicates `dark.css`; keep in sync
+1. `src/themes/auto.css` duplicates `dark.css` (enforced by `npm run contrast`); its light half is the `[data-theme="auto"]` selector in `light.css`
 2. Red `#fd4864` fails 4.5:1 as text on white; used for underlines/borders, not text
 
 ## Build
 
 ```
 npm run build     # src -> dist
-npm run contrast  # WCAG AA check of all themes
+npm run contrast  # WCAG AA check of all themes (incl. footer) + theme consistency
 npm run check     # both
 ```
 
@@ -76,23 +80,20 @@ Layer order: `se.reset, se.tokens, se.themes, se.base, se.layout, se.forms, se.c
 
 ## Publish
 
-Release (`.github/workflows/release.yml`): push a tag `v<version>` matching `package.json`. Job 1 runs `npm run check` and publishes to npm; job 2 deploys the demo to GitHub Pages and runs only if the publish succeeded.
+CI only (`.github/workflows/release.yml`): push a tag `v<version>` matching `package.json`. Job 1 runs `npm run check` (via `prepublishOnly`) and publishes to npm with provenance; job 2 deploys the demo to GitHub Pages and runs only if job 1 succeeded.
 
 ```
 npm version patch --no-git-tag-version   # or edit package.json
 git commit -am "release x.y.z" && git tag vx.y.z && git push origin main vx.y.z
 ```
 
-One-time setup: repo secret `NPM_TOKEN` (npm automation/granular token with publish rights), and Settings > Pages > Source = "GitHub Actions". Site is `demo/` + `dist/` + logos; licensed fonts are not deployed, so the demo falls back to Helvetica Neue there. The tag must match the version or the run fails before publishing.
+1. Tag must match the version or the run fails before publishing.
+2. Version already on npm: publish is skipped, Pages still deploys (safe re-run).
+3. Manual run (Actions > Run workflow): publishes only when run on a `v*` tag; on a branch it only redeploys Pages.
 
-```
-npm login
-npm run publish:npm -- --dry-run          # check + pack preview, no upload
-npm run publish:npm -- patch              # bump, then publish (minor|major|x.y.z)
-npm run publish:npm -- --tag=next --otp=123456
-```
+One-time setup: repo secret `NPM_TOKEN` (npm automation/granular token with publish rights), Settings > Pages > Source = "GitHub Actions", and environment `github-pages` allowing branch `main` and tags `v*`. Site is `demo/` + `dist/` + logos + LICENSE; licensed fonts are not deployed, so the demo falls back to Helvetica Neue there.
 
-Package contains `dist/`, `src/`, README only. Fonts and logos are excluded. Name `sprinteins-css` is unscoped: confirm it is free, or rename (e.g. `@sprinteins/css`) in `package.json`. License is `UNLICENSED`: set the real one before publishing.
+Package `@sprinteins/presentable-by-default` contains `dist/`, `src/`, README, LICENSE. Fonts and logos are excluded.
 
 ## Customize
 
@@ -108,4 +109,4 @@ assets/logos/  web logos
 docs/research.md  research + site tokens
 ```
 
-Logo masters: `_SprintEins_Logopack/`.
+Logo masters: `_SprintEins_Logopack/` (local only, git-ignored; get it from SprintEins brand/marketing).

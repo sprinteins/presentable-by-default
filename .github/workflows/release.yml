@@ -2,6 +2,8 @@ name: Release (npm, then GitHub Pages)
 
 # Release: bump version in package.json, commit, then
 #   git tag v<version> && git push origin v<version>
+# Manual run (workflow_dispatch): publishes to npm only when run on a v* tag;
+# on a branch it only rebuilds and redeploys the demo site.
 on:
   push:
     tags: ["v*"]
@@ -16,10 +18,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
@@ -33,11 +36,24 @@ jobs:
             exit 1
           fi
 
+      - name: Skip publish if version already on npm
+        id: published
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          spec="$(node -p "const p=require('./package.json'); p.name+'@'+p.version")"
+          if npm view "$spec" version >/dev/null 2>&1; then
+            echo "$spec already published, skipping npm publish"
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # prepublishOnly runs `npm run check`; run it explicitly only when not publishing.
       - name: Build and check contrast
+        if: ${{ !startsWith(github.ref, 'refs/tags/v') || steps.published.outputs.exists == 'true' }}
         run: npm run check
 
       - name: Publish to npm
-        run: npm publish --access public
+        if: ${{ startsWith(github.ref, 'refs/tags/v') && steps.published.outputs.exists != 'true' }}
+        run: npm publish --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -46,10 +62,11 @@ jobs:
           mkdir -p _site/assets
           cp -r demo dist _site/
           cp -r assets/logos _site/assets/logos
+          cp LICENSE _site/LICENSE.txt
           cp .github/pages/index.html _site/index.html
           touch _site/.nojekyll
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: _site
 
@@ -64,4 +81,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

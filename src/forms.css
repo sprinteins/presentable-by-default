@@ -87,18 +87,13 @@
     transition: border-color var(--se-duration) var(--se-ease);
   }
 
-  input:not([type="checkbox"], [type="radio"], [type="range"], [type="submit"], [type="button"], [type="reset"]):focus,
+  /* Same exclusion list as the field rule above; other inputs keep the global focus outline */
+  input:not([type="checkbox"], [type="radio"], [type="range"], [type="submit"], [type="button"], [type="reset"], [type="color"], [type="file"]):focus,
   select:focus,
   textarea:focus {
     border-color: var(--se-accent);
     outline: none;
     box-shadow: 0 0 0 3px var(--se-accent-soft);
-  }
-
-  input:focus-visible,
-  select:focus-visible,
-  textarea:focus-visible {
-    outline: none;
   }
 
   input::placeholder,
@@ -125,7 +120,8 @@
     cursor: pointer;
   }
 
-  [aria-invalid="true"] {
+  :is(input, select, textarea)[aria-invalid="true"],
+  :is(input, select, textarea)[aria-invalid="true"]:focus {
     border-color: var(--se-danger);
   }
 
@@ -238,7 +234,7 @@
   }
 
   /* Header controls stay compact */
-  :where(header, nav) :where(select, input:not([type="checkbox"], [type="radio"])) {
+  :is(header, nav) :is(select, input:not([type="checkbox"], [type="radio"], [type="range"], [type="submit"], [type="button"], [type="reset"], [type="color"], [type="file"])) {
     width: auto;
     padding-block: 0.5em;
   }

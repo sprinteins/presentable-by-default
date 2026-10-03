@@ -29,6 +29,14 @@
       select.addEventListener("change", () => apply(select.value));
     }
 
+    const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+    const markCurrent = () => {
+      navLinks.forEach((a) => a.removeAttribute("aria-current"));
+      navLinks.find((a) => a.hash === location.hash)?.setAttribute("aria-current", "location");
+    };
+    markCurrent();
+    window.addEventListener("hashchange", markCurrent);
+
     document.querySelectorAll("[data-open-dialog]").forEach((button) =>
       button.addEventListener("click", () => document.getElementById(button.dataset.openDialog)?.showModal()),
     );

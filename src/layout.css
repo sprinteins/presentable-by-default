@@ -93,6 +93,8 @@
     --se-surface: color-mix(in srgb, var(--se-fg) 8%, var(--se-bg));
     --se-border: color-mix(in srgb, var(--se-fg) 15%, transparent);
     --se-border-strong: var(--se-fg);
+    --se-tint: color-mix(in srgb, var(--se-fg) 6%, transparent);
+    --se-accent-soft: color-mix(in srgb, var(--se-accent) 18%, transparent);
     --se-focus: var(--se-accent);
     --se-logo-filter: var(--se-footer-logo-filter);
     background: var(--se-bg);

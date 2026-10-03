@@ -28,26 +28,26 @@
 
   /* Callouts: <aside>, optional data-tone="info|success|warning|danger" */
   aside {
-    --tone: var(--se-accent);
+    --se-tone: var(--se-accent);
     padding: var(--se-space-5) var(--se-space-6);
-    background: color-mix(in srgb, var(--tone) 14%, var(--se-bg));
-    border-inline-start: 0.3rem solid var(--tone);
+    background: color-mix(in srgb, var(--se-tone) 14%, var(--se-bg));
+    border-inline-start: 0.3rem solid var(--se-tone);
   }
 
   aside[data-tone="info"] {
-    --tone: var(--se-info);
+    --se-tone: var(--se-info);
   }
 
   aside[data-tone="success"] {
-    --tone: var(--se-success);
+    --se-tone: var(--se-success);
   }
 
   aside[data-tone="warning"] {
-    --tone: var(--se-warning);
+    --se-tone: var(--se-warning);
   }
 
   aside[data-tone="danger"] {
-    --tone: var(--se-danger);
+    --se-tone: var(--se-danger);
   }
 
   aside > :where(h1, h2, h3, h4, h5, h6):first-child {
@@ -105,10 +105,6 @@
   }
 
   details > :not(summary) {
-    margin-block-end: var(--se-space-5);
-  }
-
-  details > :last-child {
     margin-block-end: var(--se-space-5);
   }
 

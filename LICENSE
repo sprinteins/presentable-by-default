@@ -1,0 +1,43 @@
+SprintEins Proprietary License
+
+Copyright (c) 2026 SprintEins GmbH. All rights reserved.
+
+This license covers the software in this repository and package
+"@sprinteins/presentable-by-default" ("the Software"), including source code,
+stylesheets, build output, documentation, demo pages, and all brand assets
+(logos, colors, names, and references to brand fonts) ("the Assets").
+
+1. Permitted use
+   SprintEins GmbH ("SprintEins") grants a non-exclusive, non-transferable, revocable permission to
+   use, copy, and modify the Software and the Assets solely for projects that
+   are owned by SprintEins or explicitly authorized in writing by SprintEins
+   ("Authorized Projects").
+
+2. Restrictions
+   Except within Authorized Projects, you may not use, copy, modify, merge,
+   publish, distribute, sublicense, sell, or create derivative works of the
+   Software or the Assets. Public availability of the Software (for example on
+   npm, GitHub, or GitHub Pages) does not grant any right of use.
+
+3. Brand assets
+   The SprintEins name, logos, and visual identity are trademarks and brand
+   assets of SprintEins. No trademark rights are granted. The Assets may only be
+   used in accordance with SprintEins brand guidelines.
+
+4. Fonts
+   Brand font files are not part of the Software and are not distributed with
+   it. Their use is governed by their respective commercial licenses.
+
+5. Termination
+   Permission ends automatically if these terms are breached, or when a project
+   is no longer authorized by SprintEins. Upon termination, all use of the
+   Software and the Assets must stop.
+
+6. No warranty
+   THE SOFTWARE AND THE ASSETS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+   KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+   EVENT SHALL SPRINTEINS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY
+   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE ASSETS.
+
+Requests for authorization: contact SprintEins GmbH.
