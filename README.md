@@ -91,7 +91,7 @@ git commit -am "release x.y.z" && git tag vx.y.z && git push origin main vx.y.z
 2. Version already on npm: publish is skipped, Pages still deploys (safe re-run).
 3. Manual run (Actions > Run workflow): publishes only when run on a `v*` tag; on a branch it only redeploys Pages.
 
-One-time setup: repo secret `NPM_TOKEN` (npm automation/granular token with publish rights), Settings > Pages > Source = "GitHub Actions", and environment `github-pages` allowing branch `main` and tags `v*`. Site is `demo/` + `dist/` + logos + LICENSE; licensed fonts are not deployed, so the demo falls back to Helvetica Neue there.
+One-time setup: npm trusted publishing for this repo + `release.yml` (no token), Settings > Pages > Source = "GitHub Actions", and environment `github-pages` allowing branch `main` and tags `v*`. Site is `demo/` + `dist/` + logos + LICENSE; licensed fonts are not deployed, so the demo falls back to Helvetica Neue there.
 
 Package `@sprinteins/presentable-by-default` contains `dist/`, `src/`, README, LICENSE. Fonts and logos are excluded.
 

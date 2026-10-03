@@ -1,10 +1,16 @@
 {
   "name": "@sprinteins/presentable-by-default",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Classless, themeable corporate design CSS for SprintEins",
   "private": false,
   "license": "SEE LICENSE IN LICENSE",
-  "keywords": ["css", "classless", "design-system", "themes", "sprinteins"],
+  "keywords": [
+    "css",
+    "classless",
+    "design-system",
+    "themes",
+    "sprinteins"
+  ],
   "type": "module",
   "style": "dist/sprinteins.css",
   "main": "dist/sprinteins.css",
